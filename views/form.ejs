@@ -1,0 +1,28 @@
+<%- include("Partials/header") %>
+<%- include("navbar") %>
+<div style="padding:4rem; margin: 3rem 5rem 8rem; background-color: aliceblue; border-radius: 5px;">
+  <div class="px-4 sm:px-0">
+    <h3 class="text-base font-semibold leading-7 text-gray-900">Applicant Information</h3>
+  </div>
+  <% if (imageUpload) { %>
+    <img src="<%= imageUpload %>" style="align-items: center; justify-content: center; height: 300px; width: 350px;">
+  <% } %>
+  <div class="mt-6 border-t border-gray-100">
+    <dl class="divide-y divide-gray-100">
+      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+        <dt class="text-sm font-medium leading-6 text-gray-900">Email address</dt>
+        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"><%= loadEmail %></dd>
+      </div>
+      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+        <dt class="text-sm font-medium leading-6 text-gray-900">Upload Image</dt>
+        <dd class="mt-2 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
+          <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="imageLoad" accept="image/*">
+            <button type="submit" class="font-medium text-indigo-600 hover:text-indigo-500">Upload</button>
+          </form>
+        </dd>
+      </div>
+    </dl>
+  </div>
+</div>
+<%- include("Partials/footer"); -%>

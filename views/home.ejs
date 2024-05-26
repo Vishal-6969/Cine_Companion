@@ -1,0 +1,45 @@
+<%- include("Partials/header") %>
+<%- include("navbar") %>
+<%- include("p") %>
+<h1 class="postHeading  font-bold " style="margin-top: 0px;">Top Picks</h1>
+
+   <div class='grid grid-cols-3 gap-2'>
+
+  <% 
+    // Pagination parameters
+    
+    // Sort posts by createdAt
+
+
+    // Get posts for the current page
+    var currentPosts = posts
+    
+    // Render posts for the current page
+    
+    currentPosts.forEach(function(post){ 
+    %>
+    <div class="cardMovie flex flex-col justify-between" style="background: url('<%= post.imageUrl %>'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+        <h1 class="postHead"><%= post.title %></h1> 
+        <a class='hover:bg-black p-4 items-end' href="/posts/<%= post.title %>">Read More</a>
+    </div>
+    <% }) %>
+</div>
+
+<!-- Pagination Links -->
+<div class="grid grid-cols-2 text-center" >
+    <div>
+    <% if (currentPage > 1) { %>
+        <a href="?page=<%= currentPage - 1 %>" class=" underlined bg-blue-500 p-4 rounded-lg px-8 text-white text-lg hover:bg-blue-800">Previous</a>
+    <% } %></div>
+    <div>
+    <% if (currentPage < totalPages) { %>
+        <a href="?page=<%= currentPage + 1 %>" class="underlined bg-blue-500 p-4 rounded-lg px-8 text-white text-lg hover:bg-blue-800">Next</a>
+    <% } %></div>
+   
+</div>
+
+
+
+<h1 class="postHeading  font-bold " style="margin-top: 100px;">You can connect from anywhere</h1>
+<%- include("item_1") %>
+<%- include("Partials/footer") %>
